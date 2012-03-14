@@ -1,0 +1,17 @@
+<package>
+  <description brief="URDF for Python">
+
+     URDF parser written in Python and based on minidom Python module.
+
+  </description>
+  <author>Thomas Moulard</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/urdfpy</url>
+
+  <export>
+    <python path="${prefix}/src"/>
+  </export>
+
+  <depend package="rospy" />
+</package>
