@@ -10,6 +10,7 @@
   <url>http://ros.org/wiki/urdfpy</url>
 
   <export>
+    <rosdoc config="rosdoc.yaml" />
     <python path="${prefix}/src"/>
   </export>
 
