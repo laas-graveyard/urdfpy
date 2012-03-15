@@ -180,15 +180,15 @@ def buildLink(linkDom, joints):
     if linkDom.getElementsByTagName("collision"):
         link.collision = buildCollision(linkDom.getElementsByTagName("collision")[0])
 
+    link.name = str(linkDom.getAttribute("name"))
+
     for joint in joints:
-        if joint.parent_link_name and joint.parent_link_name == link.name:
+        if joint.parent_link_name == link.name:
             link.child_joints.append(joint.name)
             link.child_links.append(joint.child_link_name)
-        if joint.child_link_name and joint.child_link_name == link.name:
+        if joint.child_link_name == link.name:
             link.parent_joint_name = joint.name
             link.parent_link_name = joint.parent_link_name
-
-    link.name = str(linkDom.getAttribute("name"))
 
     return link
 
