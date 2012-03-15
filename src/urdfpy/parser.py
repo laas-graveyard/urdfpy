@@ -1,3 +1,7 @@
+"""
+Provides a minidom based parser for the URDF XML specification.
+"""
+
 import xml.dom.minidom
 
 import interface
@@ -261,14 +265,22 @@ def buildModel(modelDom):
     return model
 
 def parse(filename):
+    """Parse a file to create a URDF robot structure."""
     dom = xml.dom.minidom.parse(filename)
     return buildModel(dom.getElementsByTagName("robot")[0])
 
 def parseString(string):
+    """Parse a string to create a URDF robot structure."""
     dom = xml.dom.minidom.parseString(string)
     return buildModel(dom.getElementsByTagName("robot")[0])
 
 def parseFromParameterServer():
+    """
+    Retrieve the robot model on the parameter server
+    and parse it to create a URDF robot structure.
+
+    Warning: this requires roscore to be running.
+    """
     import rospy
     return parseString(rospy.get_param("robot_description"))
 

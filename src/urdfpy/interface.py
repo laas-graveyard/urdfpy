@@ -1,3 +1,7 @@
+"""
+Defines the classes mapping the URDF information.
+"""
+
 class Axis(object):
     x = 1.
     y = 0.
@@ -264,6 +268,11 @@ class Joint(object):
         return s
 
 class Model(object):
+    """
+    URDF Robot.
+
+    This contains the joints, links, robot name and root link name.
+    """
     joints = []
     links = []
     name = ""
